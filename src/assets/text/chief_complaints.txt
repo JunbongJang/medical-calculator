@@ -1,0 +1,20 @@
+Epigastric pain;6
+Right lower quadrant pain;6
+Left lower quadrant pain;6
+Epigastric pain;6
+Pain;6
+Right flank pain;1
+Left flank pain;1
+Weight loss;6
+Fever;6
+Viral hepatitis B, C;2
+Alcoholic liver disease;2
+Liver cirrhosis;2
+Evaluate for renal cell carcinoma;8
+Renal cell carcinoma, post op;9
+Evaluate for hepatocellular carcinoma;2
+Hepatocellular carcinoma, post op;3
+Evaluate for renal mass;8
+Hematuria;10
+Pain, IV allergy;4
+Bowel obstruction;5

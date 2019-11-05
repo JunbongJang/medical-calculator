@@ -1,0 +1,119 @@
+<div class="container animated fadeIn" style="height:100%;">
+  <app-header></app-header>
+
+  <div class="row mt-4">
+    <div class="col-md-9 col-lg-7 col-12">
+
+      <!--to enable analyze on enter-->
+      <form (keyup.enter)="this.analyzeCT()">
+
+        <div class="accordion" id="ct_protocol_accordion">
+          <div class="card z-depth-0 bordered">
+            <div class="card-header" id="card_heading_one">
+              <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#card_collapse_one"
+                        aria-expanded="true" aria-controls="card_collapse_one">
+                  Write list of symptoms
+                </button>
+              </h5>
+            </div>
+            <div id="card_collapse_one" class="collapse show" aria-labelledby="card_heading_one" data-parent="#ct_protocol_accordion">
+              <div class="card-body">
+
+                <!-- Grid row -->
+                <div class="form-group row">
+                  <!-- Material input -->
+                  <div class="col-sm-10">
+                    <div class="md-form mt-0">
+                      <!-- Medium input -->
+                      <div class="md-form">
+                        <input mdbInputDirective type="text" id="symptom_input_elem" class="form-control">
+                        <label for="symptom_input_elem">Describe Symptoms</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Grid row -->
+              </div>
+            </div>
+          </div>
+
+          <div class="card z-depth-0 bordered">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#card_collapse_two"
+                        aria-expanded="false" aria-controls="card_collapse_two">
+                  Choose List of symptoms from the table
+                </button>
+              </h5>
+            </div>
+            <div id="card_collapse_two" class="collapse" aria-labelledby="headingTwo" data-parent="#ct_protocol_accordion">
+              <div class="card-body">
+
+                <table class="table table-bordered">
+
+                  <thead class="primary-color-dark white-text">
+                  <tr>
+                    <th scope="col">Symptoms</th>
+                    <th scope="col" class="text-center">Yes</th>
+                    <th scope="col" class="text-center">No</th>
+                  </tr>
+                  </thead>
+
+                  <tbody>
+
+                  <tr *ngFor="let a_complaint of objectKeys(this.chief_complaints)">
+                    <th scope="row">{{a_complaint}}</th>
+                    <td>
+                      <div class="custom-control custom-radio text-center">
+                        <input type="radio" class="custom-control-input" [id]="'yes_radio_'+ a_complaint"
+                               [name]="'symptomRadioInputs_'+ a_complaint">
+                        <label class="custom-control-label" [for]="'yes_radio_'+ a_complaint">Yes</label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="custom-control custom-radio text-center">
+                        <input type="radio" class="custom-control-input" [id]="'no_radio_' + a_complaint"
+                               [name]="'symptomRadioInputs_'+ a_complaint" checked>
+                        <label class="custom-control-label" [for]="'no_radio_' + a_complaint">No</label>
+                      </div>
+                    </td>
+                  </tr>
+
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <button type="button" class="btn btn-primary btn-block mt-3 mb-5"
+                (click)="this.analyzeCT()">Analyze</button>
+      </form>
+
+
+    </div>
+
+    <div class="col mt-3 mt-md-0 animated zoomIn"  [ngStyle]="{'display': this.alert_show_bool ? 'block' : 'none' }">
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Recommended CT</h4>
+        <p>{{this.ct_output_string}}</p>
+        <hr>
+        <span *ngFor="let ct_num of this.ct_output_array">
+          {{ct_num + ' '}}
+        </span>
+        <hr>
+        <div *ngFor="let ct_num of this.ct_output_array">
+          <span>{{this.ct_numbers[ct_num]}}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<app-footer></app-footer>

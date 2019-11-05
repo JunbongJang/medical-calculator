@@ -1,0 +1,10 @@
+1;CT KUB;no;no
+2;CT 4 phase liver (abdomen only);yes;no
+3;CT 4 phase liver (abdomen and pelvis);yes;no
+4;CT abdomen and pelvis;no;yes
+5;CT abdomen and pelvis;yes;no
+6;CT abdomen and pelvis;yes;yes
+7;CT 4 phase kidney only;yes;no
+8;CT 3 phase kidney only;no;no
+9;CT 3 phase kidney and pelvis;yes;yes
+10;CT urogram;yes;no
